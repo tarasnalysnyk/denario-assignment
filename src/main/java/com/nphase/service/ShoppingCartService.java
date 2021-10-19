@@ -7,7 +7,11 @@ import java.math.BigDecimal;
 
 public class ShoppingCartService {
 
-    public BigDecimal calculateTotalPrice(ShoppingCart shoppingCart) throws OperationNotSupportedException {
-        throw new OperationNotSupportedException("TODO");
+    public BigDecimal calculateTotalPrice(ShoppingCart shoppingCart) {
+        return shoppingCart.getProducts()
+                .stream()
+                .map(product -> product.getPricePerUnit().multiply(BigDecimal.valueOf(product.getQuantity())))
+                .reduce(BigDecimal::add)
+                .orElse(BigDecimal.ZERO);
     }
 }

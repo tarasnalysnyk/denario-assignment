@@ -14,7 +14,7 @@ public class ShoppingCartServiceTest {
     private final ShoppingCartService service = new ShoppingCartService();
 
     @Test
-    public void calculatesPrice() throws OperationNotSupportedException {
+    public void calculatesPrice()  {
         ShoppingCart cart = new ShoppingCart(Arrays.asList(
                 new Product("Tea", BigDecimal.valueOf(5.0), 2),
                 new Product("Coffee", BigDecimal.valueOf(6.5), 1)
